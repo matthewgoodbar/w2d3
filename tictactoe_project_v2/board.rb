@@ -1,12 +1,13 @@
 class Board
 
-    def initialize
-        @board = Array.new(3) {Array.new(3, '_')}
+    def initialize(n=3)
+        @n = n
+        @board = Array.new(n) {Array.new(n, '_')}
     end
 
     def valid?(position)
         return false unless position.length == 2
-        return false unless position[0] < 3 && position[1] < 3
+        return false unless position[0] < @n && position[1] < @n
         return false unless position[0] >= 0 && position[1] >= 0
         return true
     end
