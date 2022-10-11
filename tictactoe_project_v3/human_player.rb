@@ -6,12 +6,12 @@ class HumanPlayer
         @mark_value = mark_value
     end
 
-    def get_position
+    def get_position(legal_positions)
         begin
-            puts @mark_value.to_s + " player, enter a position:"
+            puts "Player " + @mark_value.to_s + ", enter a position:"
             user_input = gets.chomp.split(" ")
             user_input.map!(&:to_i)
-            if user_input.length != 2 || (!user_input[0].is_a?(Integer) && !user_input[1].is_a?(Integer))
+            if user_input.length != 2 || !legal_positions.include?(user_input)
                 raise RuntimeError.new "Invalid Input"
             end
         rescue
