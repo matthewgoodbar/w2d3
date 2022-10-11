@@ -75,4 +75,11 @@ class Board
         return false
     end
 
+    def check_victory(mark)
+        return true if win_row?(mark)
+        return true if win_col?(mark)
+        return true if win_diag?(mark)
+        return false
+    end
+
 end
